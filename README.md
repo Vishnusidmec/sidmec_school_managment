@@ -1,0 +1,1 @@
+# sidmec_school_managment
