@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="school_management"
+              name="SCM"
+    />
+    <menuitem id="school_student"
+              name="Student"
+              parent="school_management"
+              action="school_student_action"
+    />
+    <menuitem id="school_teacher"
+              name="Teacher"
+              parent="school_management"
+              action="school_teacher_action"/>
+</odoo>
