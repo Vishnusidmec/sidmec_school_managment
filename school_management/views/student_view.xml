@@ -21,9 +21,9 @@
         <field name="arch" type="xml">
             <form string="Student Details">
                 <header>
-                    <button name="action_select" string="SELECT"
+                    <button name="action_select" string="Admit"
                             type="object" class="oe_highlight" title="Mark as Selected"
-                            invisible="select_status == 'selected'"/>
+                            invisible="select_status == 'admitted'"/>
                     <field name="select_status" widget="statusbar"/>
                 </header>
 
@@ -37,7 +37,8 @@
                         <field name="standard"/>
                         <field name="age"/>
                         <field name="class_teacher"/>
-                        <field name="age_date_of_birth" invisible="1"/>
+                        <field name="teacher_mob"/>
+<!--                        <field name="age_date_of_birth" invisible="1"/>-->
                         <field name="teacher_ids" widget="many2many_tags"/>
                     </group>
 
