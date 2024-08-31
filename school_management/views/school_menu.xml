@@ -12,4 +12,8 @@
               name="Teacher"
               parent="school_management"
               action="school_teacher_action"/>
+    <menuitem id="school_query"
+              name="Query"
+              parent="school_management"
+              action="school_query_action"/>
 </odoo>

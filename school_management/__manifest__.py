@@ -7,7 +7,9 @@
     'data': ["security/ir.model.access.csv",
         "views/student_view.xml",
 "views/teacher_view.xml",
+"views/query_view.xml",
 "views/school_menu.xml",
+
 
 
     ],

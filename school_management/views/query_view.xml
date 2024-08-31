@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_school_query_tree" model="ir.ui.view">
+        <field name="name">school.query.tree</field>
+        <field name="model">school.query</field>
+        <field name="arch" type="xml">
+            <tree string="Details">
+                <field name="child_name"/>
+                <field name="admission_status"/>
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_school_query_form" model="ir.ui.view">
+        <field name="name">school.query.form</field>
+        <field name="model">school.query</field>
+        <field name="arch" type="xml">
+            <form string="Details">
+                 <header>
+                    <button name="combined" string="Admit"
+                            type="object" class="oe_highlight" title="Mark as Selected"
+                            invisible="admission_status == 'admitted'"/>
+                    <field name="admission_status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="child_name"/>
+                        <field name="parent_name"/>
+                        <field name="child_date_of_birth"/>
+                        <field name="child_class"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="school_query_action" model="ir.actions.act_window">
+        <field name="name">Query</field>
+        <field name="res_model">school.query</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+</odoo>
