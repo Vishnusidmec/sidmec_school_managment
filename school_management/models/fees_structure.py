@@ -1,8 +1,9 @@
 from odoo import models,fields
 
+
 class FeesStructure(models.Model):
     _name = "fees.structure"
-
+    _rec_name = "name"
     name = fields.Char(string="Name",required=True)
     fees_amount =fields.Float(string = "Fees Amount")
     from_date = fields.Date(string="From Date")
