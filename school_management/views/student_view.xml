@@ -26,6 +26,13 @@
                             invisible="select_status == 'admitted'"/>
                     <field name="select_status" widget="statusbar"/>
                 </header>
+                <header>
+                    <button name="action_suggestion" string="Suggestion"
+                            type="object" class="oe_highlight" title="Suggestion"
+                            invisible="select_status == 'draft'"/>
+
+
+                </header>
 
                 <sheet>
                     <group>

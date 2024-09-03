@@ -1,6 +1,6 @@
 from email.policy import default
 
-from odoo import fields,models,api
+from odoo import fields,models,api,_
 from odoo.tools.populate import compute
 from datetime import datetime
 from odoo.exceptions import ValidationError
@@ -12,15 +12,15 @@ class SchoolStudent(models.Model):
     _rec_name = "student_name"
     _inherit = ['mail.thread']
 
-    student_name = fields.Char(string="Full name", required=True)
-    guardian_name = fields.Char(string="Guardian name", required=True)
-    guardian_phone = fields.Char(string="Guardian_phone")
-    date_of_birth = fields.Date(string="Date of birth" )
-    age = fields.Char(string="Age",compute='_compute_age',store=True)
-    address = fields.Char(string="Address")
-    standard = fields.Char(string="Class")
-    teacher_mob = fields.Char(string="Teacher Mobile")
-    class_teacher = fields.Many2one('school.teacher', string="class_teacher")
+    student_name = fields.Char(string="Full name", required=True,tracking =True)
+    guardian_name = fields.Char(string="Guardian name", required=True,tracking =True)
+    guardian_phone = fields.Char(string="Guardian_phone",tracking =True)
+    date_of_birth = fields.Date(string="Date of birth",tracking =True)
+    age = fields.Char(string="Age",compute='_compute_age',store=True,tracking =True)
+    address = fields.Char(string="Address",tracking =True)
+    standard = fields.Char(string="Class",tracking =True)
+    teacher_mob = fields.Char(string="Teacher Mobile",tracking =True)
+    class_teacher = fields.Many2one('school.teacher', string="class_teacher",tracking =True)
 
     fee_structure_ids = fields.One2many('fees.structure', 'student_id', string='Fees Structures',
                                         help="Related Fees Structure")
@@ -61,3 +61,14 @@ class SchoolStudent(models.Model):
             if student_exist:
                 raise ValidationError("There is already a student with the same phone number")
             return super(SchoolStudent, self).create(vals)
+
+
+    def action_suggestion(self):
+        return {
+            'name': _('Suggestions'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'school.student.suggestion',
+            'target' : 'new'
+,
+        }

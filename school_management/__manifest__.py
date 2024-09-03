@@ -15,6 +15,8 @@
 "views/sale_view.xml",
 "views/inovice_view.xml",
 "views/invoice_line.xml",
+"views/suggestions_main_view.xml",
+"wizard/student_suggestion_view.xml",
 "views/school_menu.xml",
 
 

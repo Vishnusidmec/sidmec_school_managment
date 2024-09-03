@@ -3,3 +3,5 @@ access_school_student_details,access_school_student_details,model_school_student
 access_school_teacher_details,access_school_teacher_details,model_school_teacher,base.group_user,1,1,1,1
 access_school_fees_details,access_school_fees_details,model_fees_structure,base.group_user,1,1,1,1
 access_school_query_details,access_school_query_details,model_school_query,base.group_user,1,1,1,1
+access_student_suggestion_wizard,access_student_suggestion_wizard,model_school_student_suggestion,base.group_user,1,1,1,1
+access_suggestions_main,access_suggestions_main,model_suggestions_main,base.group_user,1,1,1,1

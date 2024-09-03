@@ -16,4 +16,9 @@
               name="Query"
               parent="school_management"
               action="school_query_action"/>
+
+    <menuitem id="suggestions_main"
+              name="Suggestions"
+              parent="school_management"
+              action="suggestions_main_action"/>
 </odoo>
