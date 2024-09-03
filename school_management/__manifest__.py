@@ -2,12 +2,19 @@
     'name': "School Managemet",
     'summary': "Helps to manage the school details",
     'version': '2.0',
-    'depends': [],
+    'depends': ["sale","mail","account",
+
+
+
+    ],
     'auto_install': [],
     'data': ["security/ir.model.access.csv",
         "views/student_view.xml",
 "views/teacher_view.xml",
 "views/query_view.xml",
+"views/sale_view.xml",
+"views/inovice_view.xml",
+"views/invoice_line.xml",
 "views/school_menu.xml",
 
 

@@ -1,7 +1,9 @@
 from odoo import fields,models
 
+
 class SchoolTeacher(models.Model):
     _name = "school.teacher"
+    _rec_name = "name"
     name = fields.Char(string="Full name", required=True)
     mobile = fields.Char(string="Phone", required=True)
     address = fields.Char(string="Address")

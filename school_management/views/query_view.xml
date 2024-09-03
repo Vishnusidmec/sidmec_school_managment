@@ -31,6 +31,7 @@
                         <field name="parent_name"/>
                         <field name="child_date_of_birth"/>
                         <field name="child_class"/>
+                        <field name="parent_mob"/>
 
                     </group>
                 </sheet>
