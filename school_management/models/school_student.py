@@ -56,6 +56,7 @@ class SchoolStudent(models.Model):
     def create(self, vals):
         if vals['guardian_phone']:
             print("entered details", vals)
+            (print("Hai"))
             student_exist = self.env["school.student"].search([('guardian_phone', "=", vals['guardian_phone'])])
             if student_exist:
                 raise ValidationError("There is already a student with the same phone number")
