@@ -20,32 +20,50 @@
         <field name="model">school.student</field>
         <field name="arch" type="xml">
             <form string="Student Details">
+
                 <header>
                     <button name="action_select" string="Admit"
                             type="object" class="oe_highlight" title="Mark as Selected"
                             invisible="select_status == 'admitted'"/>
                     <field name="select_status" widget="statusbar"/>
                 </header>
+
                 <header>
+                    <button name="create_user" string="Create"
+                            type="object" class="oe_highlight" title="Mark as Selected" invisible="select_status == 'admitted'"/>
+                    <!--                    <button name="action_send_mail" string="Send mail"-->
+                    <!--                            type="object" class="oe_highlight"/>-->
                     <button name="action_suggestion" string="Suggestion"
                             type="object" class="oe_highlight" title="Suggestion"
-                            invisible="select_status == 'draft'"/>
-
-
+                            context="{'default_name':active_id,'default_standard': standard}"
+                            invisible="select_status == 'draft'"
+                    />
                 </header>
 
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_suggestion" type="object" class="oe_stat_button" icon="fa-star">
+                            <div class="o_stat_info">
+                                <field name="suggestion_count" class="o_stat_value"/>
+                                <span class="o_stat_text"> Suggestions</span>
+                            </div>
+                        </button>
+
+                    </div>
                     <group>
                         <field name="student_name"/>
                         <field name="guardian_name"/>
                         <field name="guardian_phone"/>
+                        <field name="email"/>
                         <field name="date_of_birth"/>
                         <field name="address"/>
                         <field name="standard"/>
                         <field name="age"/>
                         <field name="class_teacher"/>
                         <field name="teacher_mob"/>
-                        <!--                        <field name="age_date_of_birth" invisible="1"/>-->
+                        <field name="total_amount"/>
+
+
                         <field name="teacher_ids" widget="many2many_tags"/>
                     </group>
 
@@ -57,7 +75,8 @@
                                     <field name="fees_amount"/>
                                     <field name="from_date"/>
                                     <field name="to_date"/>
-                                    <field name="tax_amount"/>
+                                    <field name="tax_ids" widget="many2many_tags"/>
+                                    <field name="total_amount"/>
                                 </tree>
                                 <form>
                                     <group>
@@ -70,11 +89,30 @@
                                 </form>
                             </field>
                         </page>
+                        <page name="student" string="Additional Details">
+                            <group>
+                                <field name="user_id"/>
+                                <field name="select_status"/>
+                            </group>
+                        </page>
+
                     </notebook>
+
+                         <group style="text-align: right; margin-left:985px;">
+                             <field name="un_taxed_amount"/>
+                             <field name="total_tax_amount"/>
+                             <field name="total_amount"/>
+
+
+
+                         </group>
                 </sheet>
-                 <div class="oe_chatter">
+
+
+
+                <div class="oe_chatter">
                     <field name="message_ids" widget='mail_thread'/>
-                 </div>
+                </div>
             </form>
         </field>
     </record>

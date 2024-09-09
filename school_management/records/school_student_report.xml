@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="report_school_student">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page">
+                           <h2 style="text-decoration: underline;">Student Fees Report</h2>
+
+                             Student Name :    <span style="padding: 10px; font-size:25px;" t-field="doc.student_name"/>
+                            <br>
+                            </br>
+                           Guardian Name :<span style="padding: 10px; font-size:25px;" t-field="doc.guardian_name"/>
+                            <br>
+                            Date Of Birth :<span style="padding: 10px; font-size:25px;" t-field="doc.date_of_birth"/>
+                            </br>
+                            <table class="table table-bordered" style="border: 1px solid black;">
+
+                                <thead>
+                                    <th>Fees Name</th>
+                                    <th>Amount</th>
+                                    <th>From Date</th>
+                                    <th >Due Date</th>
+                                    <th>Tax</th>
+                                    <th>Total Amount</th>
+                                </thead>
+
+                                <tbody>
+                                    <t t-foreach="doc.fee_structure_ids" t-as="line">
+                                        <tr style="border: none;">
+                                            <td style="text-align:center;">
+                                                <span t-field="line.name"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="line.fees_amount"/>
+                                            </td>
+                                             <td style="text-align:center;">
+                                                <span t-field="line.from_date"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="line.to_date"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="line.tax_ids"/>
+                                            </td>
+                                             <td style="text-align:center;">
+                                                <span t-field="line.total_amount"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+
+                                </tbody>
+                            </table>
+                            <div style="text-align:right;">Total Untaxed: <span t-field="doc.un_taxed_amount"/> </div>
+                            <div style="text-align:right;">Total Tax Amount: <span t-field="doc.total_tax_amount"/> </div>
+                            <div style="text-align:right;">Total Fees Amount: <span t-field="doc.total_amount"/> </div>
+
+                        </div>
+
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
