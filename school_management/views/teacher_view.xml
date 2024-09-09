@@ -18,6 +18,17 @@
         <field name="model">school.teacher</field>
         <field name="arch" type="xml">
             <form string="Teacher Details">
+                <header>
+                    <button name="create_user" string="Create"
+                            type="object" class="oe_highlight" title="Mark as Selected"/>
+
+                </header>
+                <header>
+                    <button name="action_permanent" string="Permanent"
+                            type="object" class="oe_highlight" title="Mark as Selected"
+                            invisible="permanent == 'permanent'"/>
+                    <field name="permanent" widget="statusbar"/>
+                </header>
                 <sheet>
                     <group>
                         <field name="name"/>
@@ -25,6 +36,7 @@
                         <field name="address"/>
                         <field name="date_of_birth"/>
                         <field name="is_a_teacher"/>
+                        <field name="user_id"/>
                     </group>
                 </sheet>
                 <sheet>
@@ -37,6 +49,13 @@
             </form>
         </field>
     </record>
+<!--    <notebook>-->
+<!--        <page name="fees_structure" string="Fees Structure">-->
+<!--            <field name="user_id">-->
+<!--            </field>-->
+<!--        </page>-->
+<!--    </notebook>-->
+
 
 
     <record id="school_teacher_action" model="ir.actions.act_window">

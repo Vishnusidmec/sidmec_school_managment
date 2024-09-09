@@ -11,14 +11,21 @@
     <menuitem id="school_teacher"
               name="Teacher"
               parent="school_management"
-              action="school_teacher_action"/>
+              action="school_teacher_action"
+              groups="group_school_management,group_school_teacher"
+    />
     <menuitem id="school_query"
               name="Query"
               parent="school_management"
-              action="school_query_action"/>
+              action="school_query_action"
+              groups="group_school_management,group_school_teacher"
+
+    />
+
 
     <menuitem id="suggestions_main"
               name="Suggestions"
               parent="school_management"
-              action="suggestions_main_action"/>
+              action="suggestions_main_action"
+              groups="group_school_management"/>/>
 </odoo>
